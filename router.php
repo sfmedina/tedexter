@@ -17,6 +17,12 @@ switch ($params[0]) {
         $view->showInicio();
         break;
 
+        case "login":       
+            $view = new inicioView();
+            $view->showLogin();
+            break;
+        
+
     case "about":
         echo "<h3> Hola, caso about</h3>";
         break;
@@ -33,7 +39,8 @@ switch ($params[0]) {
             break;
 
     default:
-        echo "<h3> Acción no encontrada</h3>";
+      $view = new inicioView();
+        $view->showError();
         break;
 }
 

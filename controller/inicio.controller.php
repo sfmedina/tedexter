@@ -20,15 +20,15 @@ class inicioController {
 
     public function showInicio() {
         $view = new inicioView();
-        $view->showInicio();
-        
-        
-            
+        $view->showInicio();   
         
        
 
 
     }
+    public function showLogin() {
+        $view = new inicioView();
+        $view->showLogin();
 
 }
 
