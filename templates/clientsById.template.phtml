@@ -1,0 +1,26 @@
+<?php require_once './templates/header.template.phtml'; ?>
+
+<div class="d-flex justify-content-center align-items-center my-4">
+    <div class="p-4 border rounded">
+        <table class="table table-borderless">
+            <thead>
+                <tr>
+                    <th scope="col">Id pedido</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Id cliente</th>
+                </tr>
+            </thead>
+        <tbody>
+    
+    <?php foreach($orders as $order): ?>
+        <tr>
+            <th scope="row"> <?= $order->id_order ?></th>     
+            <td><?= $order->date ?></td>
+            <td><?= $order->status ?> </td>
+            <td> <?= $order-> id_client?></td>
+        </tr>  
+    <?php endforeach ?>
+
+</table>
+<a href="../showClients"><button  type="button" class="btn btn-warning">Volver</button></a>

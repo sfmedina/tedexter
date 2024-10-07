@@ -1,12 +1,14 @@
 <?php require './templates/header.template.phtml'?>
 
-   <table class="table">
+<div class="d-flex justify-content-center align-items-center my-4">
+    <div class="p-4 border rounded">
+    <table class="table table-borderless">
         <thead>
           <tr>
             <th scope="col">#Order</th>
             <th scope="col">Date</th>
-            <th scope="col">#Client</th>
             <th scope="col">Status</th>
+            <th scope="col">#Client</th>
           </tr>
         </thead>
         <tbody>
@@ -14,8 +16,8 @@
     <tr>
       <th scope="row"> <?= $order->id_order ?></th>     
       <td><?= $order->date ?></td>
-      <td><?= $order->id_client ?> </td>
-      <td> <?= $order->status ?></td>
+      <td><?= $order->status ?> </td>
+      <td> <?= $order->id_client ?></td>
       <td><a href="showOrder/<?=$order->id_order ?>"> <button method = "post" type="button" class="btn btn-primary">Detalle</button></a></td>
     </tr>  
         

@@ -1,22 +1,24 @@
 <?php require './templates/header.template.phtml' ?>
 
-
-   <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#Order</th>
-            <th scope="col">Date</th>
-            <th scope="col">#Client</th>
-            <th scope="col">Status</th>
-          </tr>
-        </thead>
+<div class="d-flex justify-content-center align-items-center my-4">
+    <div class="p-4 border rounded">
+    <table class="table table-borderless">
+          <thead>
+            <tr>
+              <th scope="col">#Order</th>
+              <th scope="col">Date</th>
+              <th scope="col">Status</th>
+              <th scope="col">#Client</th>
+            </tr>
+          </thead>
         <tbody>
-<?php foreach($orders as $order): ?>
+
+  <?php foreach($orders as $order): ?>
     <tr>
       <th scope="row"> <?= $order->id_order ?></th>     
       <td><?= $order->date ?></td>
-      <td><?= $order->id_client ?> </td>
-      <td> <?= $order->status ?></td>
+      <td><?= $order-> status?> </td>
+      <td> <?= $order->id_client ?></td>
       
     </tr>  
         

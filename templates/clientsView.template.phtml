@@ -1,0 +1,31 @@
+<?php require './templates/header.template.phtml';?>
+
+<div class="d-flex justify-content-center align-items-center my-4">
+<div class="p-4 border rounded">
+<table class="table table-borderless">
+      <thead>
+        <tr>
+        <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Address</th>
+          <th scope="col">Phone</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <?php foreach($clients as $client): ?>
+          <tr>
+            <th scope="row"> <?= $client->id_client ?></th>
+            <td><?= $client->name ?></td>     
+            <td><?= $client->email ?></td>
+            <td><?= $client->addres ?> </td>
+            <td> <?= $client->phone ?></td>
+            <td><a href="showClient/<?=$client->id_client?>"> <button method = "post" type="button" class="btn btn-primary">Detalle</button></a></td>
+        </tr>  
+        
+        <?php endforeach;?>
+    </tbody>
+</table>
+
+    
