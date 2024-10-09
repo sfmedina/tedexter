@@ -1,6 +1,7 @@
 <?php
 require_once './controller/order-controller.php';
 require_once './model/order-model.php';
+require_once './model/userModel.php';
 
 
 class ordersController
@@ -8,11 +9,14 @@ class ordersController
    private $model;
    private $view;
    private $viewById;
+   private $modelUser;
 
    public function __construct()
    {
       $this->model  = new orderModel;
       $this->view = new orderView;
+      $this->modelUser = new userModel;
+      
    }
 
    public function showOrders()
@@ -76,8 +80,17 @@ class ordersController
       }
 
       // actualiza la tarea
-      $this->model->updateOrder($id);
+      $this->model->updateCommand($id,$date,$status,$id_client);
 
       header('Location: ' . BASE_URL); 
+  }
+
+  public function formUpdateOrder($id)
+  {
+     // obtengo las tareas de la DB
+     $clients = $this->modelUser->showclients();
+
+     // mando las tareas a la vista
+     return $this->view->formUpdateOrder($clients);
   }
 }

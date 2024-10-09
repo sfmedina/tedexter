@@ -18,7 +18,7 @@
       <th scope="row"> <?= $order->id_order ?></th>           
       <td><?= $order->status ?> </td>      
       <td><a href="./showOrder/<?=$order->id_order ?>"> <button method = "post" type="button" class="btn btn-primary">Detalle</button></a></td>
-      <td><a href="./showOrder/<?=$order->id_order ?>"> <button method = "post" type="button" class="btn btn-primary">Modificar</button></a></td>
+      <td><a href="./formUpdateOrder/<?=$order->id_order ?>"> <button method = "post" type="button" class="btn btn-primary">Modificar</button></a></td>
       <td><a href="./deleteOrder/<?=$order->id_order ?>"> <button method = "post" type="button" class="btn btn-primary">Eliminar</button></a></td>
 
     </tr>  
@@ -28,7 +28,12 @@
 </table>
 
 <a href="./formNewOrder"> <button method = "post" type="button" class="btn btn-primary">Agregar Pedido</button></a></td>
+
+
     
 
 </div>
+</div>
+
+<?php require './templates/footer.template.phtml'?> 
 
