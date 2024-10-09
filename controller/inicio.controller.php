@@ -1,36 +1,19 @@
 
 <?php
 
-require_once './view/inicio.view.php'; // Ensure this file defines the inicioView class
+require_once './view/inicio.view.php'; 
+class inicioController{
 
-   
+    public function  __construct() {}
 
-
-
-class inicioController {     
-    
-    
- 
-    public function  __construct() {
-             
-    }
-    
-
-
-
-    public function showInicio() {
+    public function showInicio()
+    {
         $view = new inicioView();
-        $view->showInicio();   
-        
-       
-
-
+        $view->showInicio();
     }
-    public function showLogin() {
+    public function showLogin()
+    {
         $view = new inicioView();
         $view->showLogin();
-
+    }
 }
-
-
-

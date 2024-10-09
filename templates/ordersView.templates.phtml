@@ -5,26 +5,30 @@
     <table class="table table-borderless">
         <thead>
           <tr>
-            <th scope="col">#Order</th>
-            <th scope="col">Date</th>
-            <th scope="col">Status</th>
-            <th scope="col">#Client</th>
+            <th scope="col">#Order</th>            
+            <th scope="col">Status</th>            
+            <th scope="col"> Detalles</th>
+            <th scope="col">Modificar</th>  
+            <th scope="col">Eliminar</th> 
           </tr>
         </thead>
         <tbody>
     <?php foreach($orders as $order): ?>
     <tr>
-      <th scope="row"> <?= $order->id_order ?></th>     
-      <td><?= $order->date ?></td>
-      <td><?= $order->status ?> </td>
-      <td> <?= $order->id_client ?></td>
-      <td><a href="showOrder/<?=$order->id_order ?>"> <button method = "post" type="button" class="btn btn-primary">Detalle</button></a></td>
+      <th scope="row"> <?= $order->id_order ?></th>           
+      <td><?= $order->status ?> </td>      
+      <td><a href="./showOrder/<?=$order->id_order ?>"> <button method = "post" type="button" class="btn btn-primary">Detalle</button></a></td>
+      <td><a href="./showOrder/<?=$order->id_order ?>"> <button method = "post" type="button" class="btn btn-primary">Modificar</button></a></td>
+      <td><a href="./deleteOrder/<?=$order->id_order ?>"> <button method = "post" type="button" class="btn btn-primary">Eliminar</button></a></td>
+
     </tr>  
         
 <?php endforeach ?>
 </tbody>
 </table>
 
+<a href="./formNewOrder"> <button method = "post" type="button" class="btn btn-primary">Agregar Pedido</button></a></td>
+    
 
-<p class="mt-3"><small>Show  <?=$count?> Orders</small></p>
+</div>
 

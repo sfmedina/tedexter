@@ -15,4 +15,11 @@ class orderView {
       $count = count($orders);
       require './templates/orderById.template.phtml';
   }
+  public function showError($msg){
+      require './templates/error.template.phtml';
+  }
+  public function formNewOrder(){
+      require './templates/formNewOrder.template.phtml';
+    
+}
 }

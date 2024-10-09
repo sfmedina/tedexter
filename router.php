@@ -7,7 +7,7 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] 
 
 
 
-$action = 'showOrders'; 
+$action = 'home'; 
 
 if (!empty($_GET['action'])) {
     $action = $_GET['action'];
@@ -24,9 +24,6 @@ switch ($params[0]) {
         $view->showLogin();
         break;
         
-    case "about":
-        echo "<h3> Hola, caso about</h3>";
-        break;
     
     case "showOrders":                 
          $controller = new ordersController;
@@ -47,6 +44,22 @@ switch ($params[0]) {
         $controller = new userController;
         $controller->showClientsById($params[1]);
         break;
+    
+    case "deleteOrder":
+        $controller = new OrdersController;        
+        $controller->deleteOrder($params[1]);
+        break;    
+    case "formNewOrder":
+        $controller = new OrdersController;
+        $controller->formNewOrder();        
+       
+        break;    
+
+    case "newOrder":
+        $controller = new OrdersController;
+        $controller->newOrder();        
+        
+        break;    
 
     default:
       $view = new inicioView();
