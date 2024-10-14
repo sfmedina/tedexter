@@ -21,10 +21,13 @@
             <td><?= $client->email ?></td>
             <td><?= $client->addres ?> </td>
             <td> <?= $client->phone ?></td>
-            <td><a href="showClient/<?=$client->id_client?>"> <button method = "post" type="button" class="btn btn-primary">Detalle</button></a></td>
-        </tr>  
+            <td><a href="deleteClient/<?=$client->id_client?>"> <button method = "post" type="button" class="btn btn-primary">Eliminar cliente</button></a></td>
+            <td><a href="updateClient/<?=$client->id_client?>"> <button method = "post" type="button" class="btn btn-primary">Actualizar cliente</button></a></td>
+            <td><a href="showClient/<?=$client->id_client?>"> <button method = "post" type="button" class="btn btn-primary">Ver pedidos</button></a></td>
+          </tr>  
         
         <?php endforeach;?>
+        <td><a href="addClient/"> <button method ="post" type="button" class="btn btn-primary">Añadir cliente</button></a></td>
     </tbody>
 </table>
 </div>

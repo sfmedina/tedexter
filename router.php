@@ -44,7 +44,22 @@ switch ($params[0]) {
         $controller = new userController;
         $controller->showClientsById($params[1]);
         break;
-
+    
+    case "deleteClient":
+        $controller = new userController;
+        $controller->deleteClient($params[1]);
+        break;
+    
+   /* case "addClient":
+        $controller = new userController;
+        $controller->addClient();
+        break;
+    
+    case "addNewClient":
+        $controller = new userController;
+        $controller->addNewClient();
+        break;*/
+    
     case "deleteOrder":
         $controller = new OrdersController;
         $controller->deleteOrder($params[1]);

@@ -29,18 +29,18 @@ class userModel {
         return $orders;
     }
     
-    public function addClient($name, $email, $addres, $phone) {
+    /*public function NewClient($name, $email, $addres, $phone) {
         $query = $this->db->prepare("INSERT INTO `client` (name, email, addres, phone) VALUES (?, ?, ?, ?)");
         $query->execute([$name, $email, $addres, $phone]);
 
         return $this->db->lastInsertId();
-    }
+    }*/
 
-    function deleteClientById($id) {
-        $query = $db->prepare('DELETE FROM `command` WHERE id_client = ?');
+    public function deleteClientById($id) {
+        $query = $this->db->prepare('DELETE FROM `command` WHERE id_client = ?');
         $query->execute([$id]);
     
-        $query = $db->prepare('DELETE FROM `client` WHERE id_client = ?');
+        $query = $this->db->prepare('DELETE FROM `client` WHERE id_client = ?');
         $query->execute([$id]);
     }
 

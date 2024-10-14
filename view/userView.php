@@ -14,5 +14,10 @@ class userView {
     $count = count($orders);
     require './templates/clientsById.template.phtml';
   }
+
+/*  public function addClient(){
+    require './templates/addClient.phtml';
+  
+}*/
 }
 ?>
