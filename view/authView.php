@@ -1,6 +1,6 @@
 <?php
-class inicioView
-{
+
+class authView {
     public function showInicio(){
         require './templates/inicioView.templates.phtml';
     }
@@ -11,6 +11,10 @@ class inicioView
 
     public function showError(){
         require './templates/error.template.phtml';
+    }
+
+    public function showLogOut(){
+        
     }
 }
 ?>

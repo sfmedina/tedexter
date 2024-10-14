@@ -1,7 +1,7 @@
 <?php
 require_once './model/order-model.php';
 require_once './controller/order-controller.php';
-require_once './view/inicio.view.php';
+require_once './view/authView.php';
 
 
 class orderView {

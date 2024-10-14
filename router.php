@@ -1,6 +1,7 @@
 <?php
 require_once './view/order.view.php';
 require_once './view/userView.php';
+require_once './controller/authController.php';
 
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
@@ -15,15 +16,19 @@ if (!empty($_GET['action'])) {
 $params = explode('/', $action);
 switch ($params[0]) {
     case "home":
-        $view = new inicioView();
-        $view->showInicio();
+        $controller = new authController;
+        $controller->showInicio();
         break;
 
     case "login":
-        $view = new inicioView();
-        $view->showLogin();
+        $controller = new authController;
+        $controller->showLogin();
         break;
-
+    
+    case "logout":
+        $controller = new authController;
+        $controller->showLogOut();
+        break;
 
     case "showOrders":
         $controller = new ordersController;
@@ -93,7 +98,7 @@ switch ($params[0]) {
         break;
 
     default:
-        $view = new inicioView();
-        $view->showError();
+        $controller = new authController;
+        $controller->showError();
         break;
 }
