@@ -29,12 +29,20 @@ class userModel {
         return $orders;
     }
     
-    /*public function NewClient($name, $email, $addres, $phone) {
-        $query = $this->db->prepare("INSERT INTO `client` (name, email, addres, phone) VALUES (?, ?, ?, ?)");
+    public function getClientById($id){
+
+        $query = $this->db->prepare('SELECT * FROM `client` WHERE id_client = ?');
+        $query->execute([$id]);
+        $client = $query->fetch(PDO::FETCH_OBJ);
+        return $client;
+    }
+    
+   public function newClient($name, $email, $addres, $phone) {
+        $query = $this->db->prepare('INSERT INTO `client` (name, email, addres, phone) VALUES (?, ?, ?, ?)');
         $query->execute([$name, $email, $addres, $phone]);
 
         return $this->db->lastInsertId();
-    }*/
+    }
 
     public function deleteClientById($id) {
         $query = $this->db->prepare('DELETE FROM `command` WHERE id_client = ?');
@@ -44,10 +52,9 @@ class userModel {
         $query->execute([$id]);
     }
 
-    public function updateClient($id) {
-        $query = $this->db->prepare('UPDATE `client` SET finalizada = 1 WHERE id = ?');
-        $query->execute([$id]);
-        // var_dump($query->errorInfo()); // y eliminar la redireccion
+    public function updateClient($id_client, $name, $email, $addres, $phone) {
+        $query = $this->db->prepare('UPDATE `client` SET name = ?, email = ?, addres = ?,phone = ? WHERE id_client = ?');
+        $query->execute([$name, $email, $addres, $phone, $id_client]); 
     }
 }
 

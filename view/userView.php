@@ -15,9 +15,8 @@ class userView {
     require './templates/clientsById.template.phtml';
   }
 
-/*  public function addClient(){
+  public function addClient($client = null){
     require './templates/addClient.phtml';
-  
-}*/
+  }
 }
 ?>

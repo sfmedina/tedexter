@@ -12,15 +12,20 @@
                 </tr>
             </thead>
         <tbody>
-    
-    <?php foreach($orders as $order): ?>
+    <?php if (empty($orders)): ?>
         <tr>
-            <th scope="row"> <?= $order->id_order ?></th>     
-            <td><?= $order->date ?></td>
-            <td><?= $order->status ?> </td>
-            <td> <?= $order-> id_client?></td>
-        </tr>  
-    <?php endforeach ?>
+            <td colspan="4" class="text-center">No hay ninguna orden de este cliente</td>
+        </tr>
+    <?php else: ?>
+        <?php foreach($orders as $order): ?>
+            <tr>
+                <th scope="row"> <?= $order->id_order ?></th>     
+                <td><?= $order->date ?></td>
+                <td><?= $order->status ?> </td>
+                <td> <?= $order-> id_client?></td>
+            </tr>  
+        <?php endforeach ?>
+    <?php endif; ?>
 
 </table>
 <a href="../showClients"><button  type="button" class="btn btn-warning">Volver</button></a>

@@ -50,15 +50,20 @@ switch ($params[0]) {
         $controller->deleteClient($params[1]);
         break;
     
-   /* case "addClient":
+   case "addClient":
         $controller = new userController;
-        $controller->addClient();
+        $controller->showClientForm();
         break;
     
-    case "addNewClient":
+   case "modifyClient":
         $controller = new userController;
-        $controller->addNewClient();
-        break;*/
+        $controller->showClientForm($params[1]);
+        break;
+    
+    case "newClient":
+        $controller = new userController;
+        $controller->newClient();
+        break;
     
     case "deleteOrder":
         $controller = new OrdersController;
