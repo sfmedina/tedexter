@@ -5,16 +5,12 @@ class authView {
         require './templates/inicioView.templates.phtml';
     }
 
-    public function showLogin(){
+    public function showLogin($error = ''){
         require './templates/login.template.phtml';
     }
 
     public function showError(){
         require './templates/error.template.phtml';
-    }
-
-    public function showLogOut(){
-        
     }
 }
 ?>

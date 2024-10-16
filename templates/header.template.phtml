@@ -1,3 +1,6 @@
+<?php 
+    session_start(); 
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -19,6 +22,13 @@
         <a class="nav-link" href="/showClients">Usuarios</a>
         <a class="nav-link" href="/showOrders">Pedidos</a>        
         <a class="nav-link" href="/login">Login</a>
+            
+       <!-- ponerlo solo para los logeados-->
+       <?php if (isset($_SESSION['IS_LOGGED']) && $_SESSION['IS_LOGGED']): ?>
+        <a class="nav-link" href="/logOut">Log out</a>  
+        <?php endif ?>
+           
+
       </div>
     </div>
   </div>

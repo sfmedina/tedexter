@@ -8,8 +8,10 @@
             <th scope="col">#Order</th>            
             <th scope="col">Status</th>            
             <th scope="col"> Detalles</th>
+            <?php if (isset($_SESSION['IS_LOGGED']) && $_SESSION['IS_LOGGED']): ?>
             <th scope="col">Modificar</th>  
             <th scope="col">Eliminar</th> 
+            <?php endif ?>
           </tr>
         </thead>
         <tbody>
@@ -18,8 +20,10 @@
       <th scope="row"> <?= $order->id_order ?></th>           
       <td><?= $order->status ?> </td>      
       <td><a href="./showOrder/<?=$order->id_order ?>"> <button method = "post" type="button" class="btn btn-primary">Detalle</button></a></td>
+      <?php if (isset($_SESSION['IS_LOGGED']) && $_SESSION['IS_LOGGED']): ?>
       <td><a href="./formUpdateOrder/<?=$order->id_order ?>"> <button method = "post" type="button" class="btn btn-primary">Modificar</button></a></td>
       <td><a href="./deleteOrder/<?=$order->id_order ?>"> <button method = "post" type="button" class="btn btn-primary">Eliminar</button></a></td>
+      <?php endif ?>
 
     </tr>  
         
@@ -27,7 +31,9 @@
 </tbody>
 </table>
 
+<?php if (isset($_SESSION['IS_LOGGED']) && $_SESSION['IS_LOGGED']): ?>
 <a href="./formNewOrder"> <button method = "post" type="button" class="btn btn-primary">Agregar Pedido</button></a></td>
+<?php endif ?>
 
 
     

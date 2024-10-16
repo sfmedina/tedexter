@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost:3306
--- Tiempo de generación: 15-09-2024 a las 23:30:48
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Host: 127.0.0.1
+-- Generation Time: Oct 16, 2024 at 11:11 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `tedexter`
+-- Database: `tedexter`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `client`
+-- Table structure for table `client`
 --
 
 CREATE TABLE `client` (
@@ -36,21 +36,21 @@ CREATE TABLE `client` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `client`
+-- Dumping data for table `client`
 --
 
 INSERT INTO `client` (`id_client`, `name`, `email`, `addres`, `phone`) VALUES
-(1, 'Federico Medina', 'sfmedina@gmail.com', 'Colon 1575', 2494665523),
-(2, 'Giuliana', 'giugmail.com', 'siempre viva 123', 2494007979),
-(6, 'Santino Lanzini', 'sant@yahoo.com.ar', 'Alem 1129', 2494551943);
+(1, 'Federico Medina', 'sfmedina@gmail.com', 'Colon 1575', 2494665527),
+(9, 'giuliana saganea', 'gsaganea@gmail.com', 'Aristóbulo del Valle 2051', 2494338832),
+(11, 'Celeste', 'giuli@gmail.com', 'Alem 332', 24945687);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `order`
+-- Table structure for table `command`
 --
 
-CREATE TABLE `order` (
+CREATE TABLE `command` (
   `id_order` int(20) NOT NULL,
   `date` date NOT NULL,
   `status` varchar(20) NOT NULL,
@@ -58,55 +58,87 @@ CREATE TABLE `order` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `orders`
+-- Dumping data for table `command`
 --
 
-INSERT INTO `order` (`id_order`, `date`, `status`, `id_client`) VALUES
+INSERT INTO `command` (`id_order`, `date`, `status`, `id_client`) VALUES
 (1, '2024-10-10', 'prepared', 1),
-(2, '2024-08-18', 'delayed', 6),
-(3, '2024-09-13', 'shipped', 2);
+(6, '2024-10-06', 'pendiente', 1);
+
+-- --------------------------------------------------------
 
 --
--- Índices para tablas volcadas
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` char(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `password`) VALUES
+(1, 'webadmin', '$2y$10$wmUqr06zst0aqxG/lq4tguFp.hrZ.uRcBFVyGcD/yUBEk1rLyiPsK');
+
+--
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `clients`
+-- Indexes for table `client`
 --
 ALTER TABLE `client`
   ADD PRIMARY KEY (`id_client`);
 
 --
--- Indices de la tabla `orders`
+-- Indexes for table `command`
 --
-ALTER TABLE `order`
+ALTER TABLE `command`
   ADD PRIMARY KEY (`id_order`),
   ADD KEY `id_client` (`id_client`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`username`),
+  ADD UNIQUE KEY `username` (`username`);
+
+--
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `clients`
+-- AUTO_INCREMENT for table `client`
 --
 ALTER TABLE `client`
-  MODIFY `id_client` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_client` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT de la tabla `order`
+-- AUTO_INCREMENT for table `command`
 --
-ALTER TABLE `order`
-  MODIFY `id_order` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `command`
+  MODIFY `id_order` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- Restricciones para tablas volcadas
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `orders`
+-- Constraints for table `command`
 --
-ALTER TABLE `order`
+ALTER TABLE `command`
   ADD CONSTRAINT `id_client` FOREIGN KEY (`id_client`) REFERENCES `client` (`id_client`);
 COMMIT;
 
