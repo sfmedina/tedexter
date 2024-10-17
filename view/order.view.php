@@ -11,7 +11,7 @@ class orderView {
       require './templates/ordersView.templates.phtml';
   }
 
-  public function showOrderById($orders){
+  public function showOrderById($orders, $client){
       $count = count($orders);
       require './templates/orderById.template.phtml';
   }

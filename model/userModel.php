@@ -57,12 +57,6 @@ class userModel {
         $query->execute([$name, $email, $addres, $phone, $id_client]); 
     }
 
-    public function getUserByUsername ($username){
-        $query = $this->db->prepare('SELECT * FROM `user` WHERE username = ?');
-        $query->execute([$username]);
-
-        $user = $query->fetch(PDO::FETCH_OBJ);
-        return $user;
-    }
+   
 }
 

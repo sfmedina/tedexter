@@ -27,13 +27,19 @@ class ordersController
       // mando las tareas a la vista
       return $this->view->showOrders($orders);
    }
+   
    public function showOrderById($id)
    {
-      // obtengo las tareas de la DB
+      // obtengo la orden por ID
       $orders = $this->model->showOrderById($id);
-
-      // mando las tareas a la vista
-      return $this->view->showOrderById($orders);
+      $id_client = $orders[0]->id_client;
+      
+      // obtengo el cliente por ID
+      $client = $this->modelUser->getClientById($id_client);
+      
+    
+      // mando la orden y el cliente a la vista
+      return $this->view->showOrderById($orders, $client);
    }
 
    public function deleteOrder($id)
@@ -45,8 +51,11 @@ class ordersController
 
    public function formNewOrder()
    {
+      // obtengo las tareas de la DB
+     $clients = $this->modelUser->showclients();
 
-      return $this->view->formNewOrder();
+     // mando las tareas a la vista
+     return $this->view->formNewOrder($clients);
    }
 
    public function newOrder()

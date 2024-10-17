@@ -1,6 +1,7 @@
 <?php
 require_once './view/authView.php';
-require_once './model/userModel.php';
+
+require_once './model/authModel.php';
 
 class authController{
     private $view;
@@ -8,7 +9,7 @@ class authController{
     
     public function __construct() {
         $this->view = new authView();
-        $this->model = new userModel();
+        $this->model = new authModel();
     }
 
 
@@ -41,7 +42,7 @@ class authController{
             session_start();
             $_SESSION['ID_USER'] = $userDb->id;
             $_SESSION['USERNAME'] = $userDb->username;
-            $_SESSION ['IS_LOGGED'] = true;
+            $_SESSION ['IS_LOGGED'] = true;// $_SESSION['LAST_ACTIVITY'] = time(); //para el tiempo de inactividad
             
             header("Location: " . BASE_URL. 'home');
         } else {
