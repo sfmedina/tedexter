@@ -18,7 +18,8 @@ class orderView {
   public function showError($msg){
       require './templates/error.template.phtml';
   }
-  public function formNewOrder(){
+  public function formNewOrder($clients){
+    $count = count($clients);
       require './templates/formNewOrder.template.phtml';
     
  }

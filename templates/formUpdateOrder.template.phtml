@@ -18,8 +18,7 @@
                 </select>
 
                 <label for="id_client">Id Cliente</label> 
-                <select name="id_client">                    
-                    <?php foreach($clients as $client): ?>
+                <select class="form-control" id="id_client" name="id_client" required>                    <?php foreach($clients as $client): ?>
                         <option value="<?= $client->id_client ?>"><?= $client->name ?></option>
                     <?php endforeach; ?>
                 </select>      
