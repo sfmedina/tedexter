@@ -5,7 +5,8 @@ En la tabla cliente tenemos los datos del mismo, Id_cliente, nombre, email, dire
 La relación de las tablas es 1 a N (1 cliente puede tener N pedidos).
 Alumnos: 	Medina, Sebastián Federico (30513499) y Saganea, Giuliana Celeste (44534456).
 
-![DER-Medina-Saganea](https://github.com/user-attachments/assets/39b7b04a-fc68-4274-89da-e9d8a0c8f7cf)
+![DER-Medina-Saganea](https://github.com/user-attachments/assets/a93e09e0-ade6-4a72-a58e-bfed773c3a04)
+
 
 
 
