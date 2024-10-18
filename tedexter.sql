@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 16, 2024 at 11:11 PM
+-- Generation Time: Oct 18, 2024 at 04:19 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -32,17 +32,18 @@ CREATE TABLE `client` (
   `name` varchar(40) NOT NULL,
   `email` varchar(30) NOT NULL,
   `addres` varchar(40) NOT NULL,
-  `phone` bigint(30) NOT NULL
+  `phone` bigint(30) NOT NULL,
+  `image` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `client`
 --
 
-INSERT INTO `client` (`id_client`, `name`, `email`, `addres`, `phone`) VALUES
-(1, 'Federico Medina', 'sfmedina@gmail.com', 'Colon 1575', 2494665527),
-(9, 'giuliana saganea', 'gsaganea@gmail.com', 'Aristóbulo del Valle 2051', 2494338832),
-(11, 'Celeste', 'giuli@gmail.com', 'Alem 332', 24945687);
+INSERT INTO `client` (`id_client`, `name`, `email`, `addres`, `phone`, `image`) VALUES
+(1, 'Federico Medina', 'sfmedina@gmail.com', 'Colon 1575', 2494665527, ''),
+(9, 'giuliana saganea', 'gsaganea@gmail.com', 'Aristóbulo del Valle 2051', 2494338832, ''),
+(17, 'giuliana saganea', 'gsaganea@gmail.com.ar', 'Aristóbulo del Valle 2051', 2494338832, 'image/users/67126c6b20234.jpg');
 
 -- --------------------------------------------------------
 
@@ -92,7 +93,8 @@ INSERT INTO `user` (`id`, `username`, `password`) VALUES
 -- Indexes for table `client`
 --
 ALTER TABLE `client`
-  ADD PRIMARY KEY (`id_client`);
+  ADD PRIMARY KEY (`id_client`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Indexes for table `command`
@@ -117,7 +119,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `client`
 --
 ALTER TABLE `client`
-  MODIFY `id_client` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_client` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `command`

@@ -10,6 +10,7 @@
           <th scope="col">Email</th>
           <th scope="col">Address</th>
           <th scope="col">Phone</th>
+          <th scope="col">Image</th>
         </tr>
       </thead>
 
@@ -21,6 +22,13 @@
             <td><?= $client->email ?></td>
             <td><?= $client->addres ?> </td>
             <td> <?= $client->phone ?></td>
+            <td>
+                <?php if (empty($client->image)): ?>
+                      No hay imagen adjuntada
+                <?php else: ?>
+                    <img src="<?= $client->image ?>" alt="Imagen del cliente" style="width: 70px; height: auto;" class= "rounded">
+                <?php endif; ?>
+            </td>
                   <?php if (isset($_SESSION['IS_LOGGED']) && $_SESSION['IS_LOGGED']): ?>
             <td><a href="deleteClient/<?=$client->id_client?>"> <button method = "post" type="button" class="btn btn-primary">Eliminar cliente</button></a></td>
             <td><a href="modifyClient/<?=$client->id_client?>"> <button method = "post" type="button" class="btn btn-primary">Actualizar cliente</button></a></td>

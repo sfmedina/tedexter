@@ -18,7 +18,10 @@ class userController {
 
     public function showClientsById($id){
         $orders = $this->model->showClientsById($id);
-        return $this->view->showClientsById($orders);
+
+        $client = $this->model->getClientById($id);
+        
+        return $this->view->showClientsById($orders, $client);
     }
     
    public function newClient() {
@@ -27,13 +30,24 @@ class userController {
         $addres = $_POST['addres'];
         $phone = $_POST['phone'];
 
+        if ($this->isEmailUsed($email, $_POST['id_client'])) { //chequea si el email ha sido usado
+            return $this->view->addClient(null,'Email ya ha sido usado'); //si fue usado salta error en el form
+        }
+
+        $image = null;
+        if (isset($_FILES['image']) && ($_FILES['image']['type'] == "image/jpg" 
+                || $_FILES['image']['type'] == "image/jpeg" 
+                || $_FILES['image']['type'] == "image/png")) {
+                $image = $_FILES['image']['tmp_name'];
+        }
+
         if (!empty($_POST['id_client'])) {
             // se modifica
             $id_client = $_POST['id_client'];
-            $this->model->updateClient($id_client, $name, $email, $addres, $phone);  
+            $this->model->updateClient($id_client, $name, $email, $addres, $phone,$image);  
         } else {
             // sino se añade
-           $this->model->newClient($name, $email, $addres, $phone);
+           $this->model->newClient($name, $email, $addres, $phone, $image);
         }
         header("Location: " . BASE_URL. 'showClients'); //se actualiza a show clients
 }
@@ -47,9 +61,13 @@ class userController {
             return $this->view->addClient($client); //te devuelve la vista del add client dependiendo de la accion 
 }
 
-
-public function deleteClient($id) {
+    public function deleteClient($id) {
         $this->model->deleteClientById($id);
         header("Location: " . BASE_URL. 'showClients');
+    }
+
+    public function isEmailUsed($email, $id_client = null){
+        $existingEmail = $this->model->getClientByEmail($email);
+        return $existingEmail  && (!$id_client || $existingEmail->id_client != $id_client); 
     }
 }

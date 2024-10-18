@@ -37,12 +37,16 @@ class userModel {
         return $client;
     }
     
-   public function newClient($name, $email, $addres, $phone) {
-        $query = $this->db->prepare('INSERT INTO `client` (name, email, addres, phone) VALUES (?, ?, ?, ?)');
-        $query->execute([$name, $email, $addres, $phone]);
-
-        return $this->db->lastInsertId();
+    public function newClient($name, $email, $addres, $phone, $image) {
+        $pathImg = null;
+        
+            $pathImg = $this->uploadImage($image); //subo imagen para obtener ruta
+            $query = $this->db->prepare('INSERT INTO `client` (name, email, addres, phone, image) VALUES (?, ?, ?, ?, ?)');
+            $query->execute([$name, $email, $addres, $phone, $pathImg]);
+        
+    return $this->db->lastInsertId();
     }
+
 
     public function deleteClientById($id) {
         $query = $this->db->prepare('DELETE FROM `command` WHERE id_client = ?');
@@ -52,11 +56,23 @@ class userModel {
         $query->execute([$id]);
     }
 
-    public function updateClient($id_client, $name, $email, $addres, $phone) {
-        $query = $this->db->prepare('UPDATE `client` SET name = ?, email = ?, addres = ?,phone = ? WHERE id_client = ?');
-        $query->execute([$name, $email, $addres, $phone, $id_client]); 
+    public function updateClient($id_client, $name, $email, $addres, $phone, $image) {
+        $pathImg = null;
+        $pathImg = $this->uploadImage($image); //subo imagen para obtener ruta
+        $query = $this->db->prepare('UPDATE `client` SET name = ?, email = ?, addres = ?,phone = ?,image = ? WHERE id_client = ?');
+        $query->execute([$name, $email, $addres, $phone,$pathImg, $id_client]); 
     }
 
+    private function uploadImage($image){
+        $target = 'image/users/' . uniqid() . '.jpg';
+        move_uploaded_file($image, $target);
+        return $target;
+    }
    
+    public function getClientByEmail($email) {
+        $query = $this->db->prepare('SELECT * FROM client WHERE email = ?');
+        $query->execute([$email]);
+        return $query->fetch(PDO::FETCH_OBJ); // Devuelve el cliente si existe, o false si no
+    }
 }
 
