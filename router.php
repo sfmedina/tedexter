@@ -93,7 +93,7 @@ switch ($params[0]) {
     case "formNewOrder":
       
         $controller = new OrdersController;
-        $controller->formNewOrder();
+        $controller->formNewOrder($params[1]);
 
         break;
 
@@ -104,8 +104,7 @@ switch ($params[0]) {
 
         break;
 
-    case "updateOrder":
-     
+    case "updateOrder":     
         $controller = new OrdersController;
         $controller->updateOrder($params[1]);
 

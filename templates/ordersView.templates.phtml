@@ -21,7 +21,7 @@
       <td><?= $order->status ?> </td>      
       <td><a href="./showOrder/<?=$order->id_order ?>"> <button method = "post" type="button" class="btn btn-primary">Detalle</button></a></td>
       <?php if (isset($_SESSION['IS_LOGGED']) && $_SESSION['IS_LOGGED']): ?>
-      <td><a href="./formUpdateOrder/<?=$order->id_order ?>"> <button method = "post" type="button" class="btn btn-primary">Modificar</button></a></td>
+      <td><a href="./formNewOrder/<?=$order->id_order ?>"> <button method = "post" type="button" class="btn btn-primary">Modificar</button></a></td>
       <td><a href="./deleteOrder/<?=$order->id_order ?>"> <button method = "post" type="button" class="btn btn-primary">Eliminar</button></a></td>
       <?php endif ?>
 
