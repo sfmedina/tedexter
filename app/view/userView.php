@@ -1,7 +1,4 @@
 <?php
-require_once './model/userModel.php';
-require_once './controller/userController.php';
-require_once './view/userView.php';
 
 class userView {
   

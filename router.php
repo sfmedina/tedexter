@@ -1,12 +1,11 @@
 <?php
-require_once './view/order.view.php';
-require_once './view/userView.php';
-require_once './controller/authController.php';
-require_once './helpers/authHelper.php';
-require_once './libs/response.php';
-
-
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
+
+require_once './app/controller/order-controller.php';
+require_once './app/controller/userController.php';
+require_once './app/controller/authController.php';
+require_once './app/helpers/authHelper.php';
+require_once './libs/response.php';
 
 $action = 'home';
 $res = new Response();

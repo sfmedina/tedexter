@@ -1,11 +1,10 @@
 <?php
-require_once './controller/order-controller.php';
-require_once './model/order-model.php';
-require_once './model/userModel.php';
+//require_once './controller/order-controller.php';
+require_once './app/model/order-model.php';
+require_once './app/model/userModel.php';
+require_once './app/view/order.view.php';
 
-
-class ordersController
-{
+class ordersController {
    private $model;
    private $view;
    private $viewById;

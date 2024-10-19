@@ -1,6 +1,6 @@
 <?php
-require_once './model/userModel.php';
-require_once './view/userView.php';
+require_once './app/model/userModel.php';
+require_once './app/view/userView.php';
 
 class userController {
     private $model;
