@@ -40,17 +40,35 @@ class userController {
                 || $_FILES['image']['type'] == "image/png")) {
                 $image = $_FILES['image']['tmp_name'];
         }
-
-        if (!empty($_POST['id_client'])) {
-            // se modifica
-            $id_client = $_POST['id_client'];
-            $this->model->updateClient($id_client, $name, $email, $addres, $phone,$image);  
-        } else {
-            // sino se añade
+        // se añade
            $this->model->newClient($name, $email, $addres, $phone, $image);
-        }
+        
         header("Location: " . BASE_URL. 'showClients'); //se actualiza a show clients
 }
+
+    public function updateClient(){
+        $id_client = $_POST['id_client'];
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $addres = $_POST['addres'];
+        $phone = $_POST['phone'];
+
+        if ($this->isEmailUsed($email, $_POST['id_client'])) { //chequea si el email ha sido usado
+            return $this->view->addClient(null,'Email ya ha sido usado'); //si fue usado salta error en el form
+        }
+
+        $image = null;
+        if (isset($_FILES['image']) && ($_FILES['image']['type'] == "image/jpg" 
+                || $_FILES['image']['type'] == "image/jpeg" 
+                || $_FILES['image']['type'] == "image/png")) {
+                $image = $_FILES['image']['tmp_name'];
+        }
+
+        $this->model->updateClient($id_client, $name, $email, $addres, $phone,$image);  
+        header("Location: " . BASE_URL. 'showClients'); //se actualiza a show clients
+    }
+
+    
 
     public function showClientForm($id = null) {
         $client = null;

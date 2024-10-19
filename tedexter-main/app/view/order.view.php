@@ -19,9 +19,5 @@ class orderView {
       require './templates/formNewOrder.template.phtml';
     
  }
- public function formUpdateOrder($clients){
-    $count = count($clients);
-    require './templates/formUpdateOrder.template.phtml';
-  
-}
+
 }

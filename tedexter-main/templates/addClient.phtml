@@ -2,37 +2,37 @@
 
 <div class="d-flex justify-content-center align-items-center my-4">
     <div class="p-4 border rounded">
-        <form action="<?= BASE_URL ?>newClient" method="POST" enctype="multipart/form-data">
-        <?php if ($error): ?>  <!---me muestra el msj de que ya se registro el email-->
-            <div class='alert alert-danger' role='alert'> 
-                <?=$error ?>
-            </div>
-        <?php endif ?>
-            <input type="hidden" name="id_client" value="<?php echo isset($client->id_client) ? $client->id_client : ''; ?>">
-                <div class="form-group mb-3">
-                    <label for="name">Ingrese nombre</label> 
-                        <input type="text" class="form-control" id="name" name="name" value="<?php echo isset($client->name) ? $client->name : ''; ?>" required>
-                    <label for="email">Ingrese email</label>
-                        <input type="email" class="form-control" id="email" name="email" value="<?php echo isset($client->email) ? $client->email : ''; ?>" required>
-                    <label for="addres">Ingrese dirección</label>
-                        <input type="text" class="form-control" id="addres" name="addres" value="<?php echo isset($client->addres) ? $client->addres : ''; ?>" required>
-                    <label for="phone">Ingrese teléfono</label>
-                        <input type="number" class="form-control" id="phone" name="phone" value="<?php echo isset($client->phone) ? $client->phone : ''; ?>" required>
-                    <label for="image">Adjunte foto para identificación</label>
-                        <input type="file" class="form-control" id="image" name="image" value="<?php echo isset($client->image) ? $client->image : ''; ?>" required>
+        <form action="<?= BASE_URL ?><?= isset($client->id_client) ? 'updateClient' : 'newClient' ?>" method="POST" enctype="multipart/form-data">
+            <?php if ($error): ?> <!---me muestra el msj de que ya se registro el email-->
+                <div class='alert alert-danger' role='alert'>
+                    <?= $error ?>
                 </div>
+            <?php endif ?>
+            <input type="hidden" name="id_client" value="<?php echo isset($client->id_client) ? $client->id_client : ''; ?>">
+            <div class="form-group mb-3">
+                <label for="name">Ingrese nombre</label>
+                <input type="text" class="form-control" id="name" name="name" value="<?php echo isset($client->name) ? $client->name : ''; ?>" required>
+                <label for="email">Ingrese email</label>
+                <input type="email" class="form-control" id="email" name="email" value="<?php echo isset($client->email) ? $client->email : ''; ?>" required>
+                <label for="addres">Ingrese dirección</label>
+                <input type="text" class="form-control" id="addres" name="addres" value="<?php echo isset($client->addres) ? $client->addres : ''; ?>" required>
+                <label for="phone">Ingrese teléfono</label>
+                <input type="number" class="form-control" id="phone" name="phone" value="<?php echo isset($client->phone) ? $client->phone : ''; ?>" required>
+                <label for="image">Adjunte foto para identificación</label>
+                <input type="file" class="form-control" id="image" name="image" value="<?php echo isset($client->image) ? $client->image : ''; ?>" >
+            </div>
 
-                <button type="submit" class="btn btn-warning">
-                    <?php echo isset($client->id_client) ? 'Actualizar Cliente' : 'Añadir Cliente'; ?>
-                </button>
+            <button type="submit" class="btn btn-warning">
+                <?php echo isset($client->id_client) ? 'Actualizar Cliente' : 'Añadir Cliente'; ?>
+            </button>
         </form>
 
-        <div class="mt-3">            
+        <div class="mt-3">
             <a href="<?= BASE_URL ?>showClients" class="btn btn-warning">Volver</a>
         </div>
 
     </div>
-    
+
 </div>
 
-<?php require './templates/footer.template.phtml'?> 
+<?php require './templates/footer.template.phtml' ?>
