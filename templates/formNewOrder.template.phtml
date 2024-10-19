@@ -3,7 +3,7 @@
 
 <div class="d-flex justify-content-center align-items-center my-4">
     <div class="p-4 border rounded">
-        <form action="newOrder" method="POST">
+        <form action="<?= BASE_URL ?>newOrder" method="POST">
 
             <input type="hidden" name="id" value="<?php echo isset($order->id_order) ? $order->id_order  : ''; ?>">
             <div class="form-group">
@@ -30,7 +30,7 @@
             </button>
         </form>
         <div>
-            <a href="../showOrders"><button type="button" class="btn btn-warning">Volver</button></a>
+            <a href="<?= BASE_URL ?>showOrders"><button type="button" class="btn btn-warning">Volver</button></a>
         </div>
     </div>
 </div>

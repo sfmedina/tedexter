@@ -29,17 +29,17 @@
                     <img src="<?= $client->image ?>" alt="Imagen del cliente" style="width: 70px; height: auto;" class= "rounded">
                 <?php endif; ?>
             </td>
-                  <?php if (isset($_SESSION['IS_LOGGED']) && $_SESSION['IS_LOGGED']): ?>
-            <td><a href="deleteClient/<?=$client->id_client?>"> <button method = "post" type="button" class="btn btn-primary">Eliminar cliente</button></a></td>
-            <td><a href="modifyClient/<?=$client->id_client?>"> <button method = "post" type="button" class="btn btn-primary">Actualizar cliente</button></a></td>
-                  <?php endif ?>
-            <td><a href="showClient/<?=$client->id_client?>"> <button method = "post" type="button" class="btn btn-primary">Ver pedidos</button></a></td>
+                <?php if (!empty($_SESSION['ID_USER'])): ?>
+            <td><a href="<?= BASE_URL ?>deleteClient/<?=$client->id_client?>"> <button method = "post" type="button" class="btn btn-primary">Eliminar cliente</button></a></td>
+            <td><a href="<?= BASE_URL ?>modifyClient/<?=$client->id_client?>"> <button method = "post" type="button" class="btn btn-primary">Actualizar cliente</button></a></td>
+                <?php endif; ?>
+            <td><a href="<?= BASE_URL ?>showClient/<?=$client->id_client?>"> <button method = "post" type="button" class="btn btn-primary">Ver pedidos</button></a></td>
           </tr>  
         
         <?php endforeach;?>
-        <?php if (isset($_SESSION['IS_LOGGED']) && $_SESSION['IS_LOGGED']): ?>
-        <td><a href="addClient/"> <button method ="post" type="button" class="btn btn-primary">Añadir cliente</button></a></td>
-        <?php endif ?>
+        <?php if (!empty($_SESSION['ID_USER'])): ?>
+        <td><a href="<?= BASE_URL ?>addClient/"> <button method ="post" type="button" class="btn btn-primary">Añadir cliente</button></a></td>
+        <?php endif; ?>
     </tbody>
 </table>
 </div>

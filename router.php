@@ -2,7 +2,7 @@
 require_once './view/order.view.php';
 require_once './view/userView.php';
 require_once './controller/authController.php';
-require_once 'helpers/authHelper.php';
+require_once './helpers/authHelper.php';
 require_once './libs/response.php';
 
 
@@ -57,64 +57,57 @@ switch ($params[0]) {
         break;
     
     case "deleteClient":
-        // $authHelper = new authHelper;
-        // $authHelper->verifySession();
+        verifySession($res);
         $controller = new userController;
         $controller->deleteClient($params[1]);
         break;
     
    case "addClient":
-        // $authHelper = new authHelper;// no necesita verificar porque ya verifica en el header
-        // $authHelper->verifySession();
+        verifySession($res);
         $controller = new userController;
         $controller->showClientForm();
         break;
     
    case "modifyClient":
-        // $authHelper = new authHelper;
-        // $authHelper->verifySession();
+        verifySession($res);
         $controller = new userController;
         $controller->showClientForm($params[1]);
         break;
     
     case "newClient":
-        // $authHelper = new authHelper;
-        // $authHelper->verifySession();
+        verifySession($res);
         $controller = new userController;
         $controller->newClient();
         break;
     
     case "deleteOrder":
-        // $authHelper = new authHelper;
-        // $authHelper->verifySession($res);
+        verifySession($res);
         $controller = new OrdersController;
         $controller->deleteOrder($params[1]);
         break;
+
     case "formNewOrder":
-      
+        verifySession($res);
         $controller = new OrdersController;
         $controller->formNewOrder($params[1]);
-
         break;
 
     case "newOrder":
-       
+        verifySession($res);
         $controller = new OrdersController;
         $controller->newOrder();
-
         break;
 
     case "updateOrder":     
+        verifySession($res);
         $controller = new OrdersController;
         $controller->updateOrder($params[1]);
-
         break;
+        
     case "formUpdateOrder":
-        // $authHelper = new authHelper;
-        // $authHelper->verifySession($res);
+        verifySession($res);
         $controller = new OrdersController;
         $controller->formUpdateOrder($params[1]);
-
         break;
 
     default:

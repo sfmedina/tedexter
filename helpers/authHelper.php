@@ -1,7 +1,5 @@
 <?php
 
-class authHelper {
-
 function verifySession($res){
         session_start(); //lee si hay una cookie
         if(isset($_SESSION['ID_USER'])){ //si esta seteado el id
@@ -13,5 +11,3 @@ function verifySession($res){
             header('Location: ' . BASE_URL . 'showLogin'); //sino redirije log in 
         }
     }
-
-}
