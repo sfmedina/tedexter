@@ -29,7 +29,7 @@
                     <img src="<?= $client->image ?>" alt="Imagen del cliente" style="width: 70px; height: auto;" class= "rounded">
                 <?php endif; ?>
             </td>
-                <?php if (!empty($_SESSION['ID_USER'])): ?>
+                <?php if (!empty($_SESSION['USERNAME'])): ?>
             <td><a href="<?= BASE_URL ?>deleteClient/<?=$client->id_client?>"> <button method = "post" type="button" class="btn btn-primary">Eliminar cliente</button></a></td>
             <td><a href="<?= BASE_URL ?>modifyClient/<?=$client->id_client?>"> <button method = "post" type="button" class="btn btn-primary">Actualizar cliente</button></a></td>
                 <?php endif; ?>
@@ -37,7 +37,7 @@
           </tr>  
         
         <?php endforeach;?>
-        <?php if (!empty($_SESSION['ID_USER'])): ?>
+        <?php if (!empty($_SESSION['USERNAME'])): ?>
         <td><a href="<?= BASE_URL ?>addClient/"> <button method ="post" type="button" class="btn btn-primary">Añadir cliente</button></a></td>
         <?php endif; ?>
     </tbody>

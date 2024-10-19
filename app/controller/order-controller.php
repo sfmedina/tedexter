@@ -74,20 +74,44 @@ class ordersController {
 
          return $this->view->showError('Falta completar el id del cliente');
       }
-
-      if ((isset($_POST['id_order'])) && (!empty($_POST['id_order']))) {
-         $id_order = $_POST['id_order'];         
-
-         // actualiza la tarea
-         $this->model->updateCommand($id_order, $date, $status, $id_client);
-
-         header('Location: ' . BASE_URL);
-      }
-      else {
+    
          // crea la tarea
          $orders = $this->model->createCommand($date, $status, $id_client);
          header('Location: ' . BASE_URL . 'showOrders');
+   }
+   
+
+
+   public function updateOrder($id){
+      $id_order = $_POST['id_order'];
+      $date = $_POST['date'];
+      $status = $_POST['status'];
+      $id_client = $_POST['id_client'];
+
+
+      if (!isset($_POST['id_order']) || empty($_POST['id_order'])) {
+         return $this->view->showError('Falta completar el ID de la orden');
       }
+
+      if (!isset($_POST['date']) || empty($_POST['date'])) {
+         return $this->view->showError('Falta completar la Fecha');
+      }
+
+      if (!isset($_POST['status']) || empty($_POST['status'])) {
+         return $this->view->showError('Falta completar el Estado');
+      }
+      if (!isset($_POST['id_client']) || empty($_POST['id_client'])) {
+         if($client = $this->modelUser->getClientById($id_client)){
+            return $this->view->showError('El cliente no existe');
+         }
+
+         return $this->view->showError('Falta completar el id del cliente');
+      }
+
+      // actualiza la tarea
+      $this->model->updateCommand($id_order, $date, $status, $id_client);
+
+      header('Location: ' . BASE_URL . 'showOrders');
    }
 
 

@@ -8,7 +8,7 @@
             <th scope="col">#Order</th>            
             <th scope="col">Status</th>            
             <th scope="col"> Detalles</th>
-            <?php if (!empty($_SESSION['ID_USER'])): ?>
+            <?php if (!empty($_SESSION['USERNAME'])): ?>
             <th scope="col">Modificar</th>  
             <th scope="col">Eliminar</th> 
             <?php endif ?>
@@ -20,7 +20,7 @@
       <th scope="row"> <?= $order->id_order ?></th>           
       <td><?= $order->status ?> </td>      
       <td><a href="<?= BASE_URL ?>showOrder/<?=$order->id_order ?>"> <button method = "post" type="button" class="btn btn-primary">Detalle</button></a></td>
-      <?php if (!empty($_SESSION['ID_USER'])): ?>
+      <?php if (!empty($_SESSION['USERNAME'])): ?>
       <td><a href="<?= BASE_URL ?>formNewOrder/<?=$order->id_order ?>"> <button method = "post" type="button" class="btn btn-primary">Modificar</button></a></td>
       <td><a href="<?= BASE_URL ?>deleteOrder/<?=$order->id_order ?>"> <button method = "post" type="button" class="btn btn-primary">Eliminar</button></a></td>
       <?php endif ?>
@@ -31,7 +31,7 @@
 </tbody>
 </table>
 
-<?php if (!empty($_SESSION['ID_USER'])): ?>
+<?php if (!empty($_SESSION['USERNAME'])): ?>
 <a href="<?= BASE_URL ?>formNewOrder"> <button method = "post" type="button" class="btn btn-primary">Agregar Pedido</button></a></td>
 <?php endif ?>
 

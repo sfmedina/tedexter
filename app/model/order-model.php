@@ -60,8 +60,7 @@ class orderModel
 
     public function updateCommand($id_order, $date, $status, $id_client)
     {
-
         $query = $this->db->prepare("UPDATE command SET date = ?, status = ?, id_client = ? WHERE id_order = ?");
-        $query->execute([$id_order, $date, $status, $id_client]); 
+        $query->execute([$date, $status, $id_client, $id_order]);  
     }
 }
