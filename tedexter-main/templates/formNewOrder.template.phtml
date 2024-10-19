@@ -1,0 +1,39 @@
+<?php require './templates/header.template.phtml';    ?>
+
+
+<div class="d-flex justify-content-center align-items-center my-4">
+    <div class="p-4 border rounded">
+        <form action="<?= BASE_URL ?>newOrder" method="POST">
+
+            <input type="hidden" name="id" value="<?php echo isset($order->id_order) ? $order->id_order  : ''; ?>">
+            <div class="form-group">
+                <label for="date">Fecha</label>
+                <input type="date" class="form-control" id="date" name="date" value="<?php echo isset($order->date) ? $order->date : ''; ?>" required>
+                <label for="status">Estado</label>
+                <select class="form-control" id="status" name="status" value = ""required>
+                    <option value="pendiente">Pendiente</option>
+                    <option value="en preparacion">En preparacion</option>
+                    <option value="en camino">En camino</option>
+                    <option value="entregado">Entregado</option>
+                </select>
+
+                <label for="id_client">Cliente</label>
+                <select class="form-control" id="id_client" name="id_client" required>
+                    <?php foreach ($clients as $client): ?>
+                        <option value="<?= $client->id_client ?>"><?= $client->name ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-4">
+                <?php echo (!empty($order->id_order)) ? 'Modificar Pedido' : 'Agregar Pedido'; ?>
+            </button>
+        </form>
+        <div>
+            <a href="<?= BASE_URL ?>showOrders"><button type="button" class="btn btn-warning">Volver</button></a>
+        </div>
+    </div>
+</div>
+
+</form>
+<?php require './templates/footer.template.phtml' ?>

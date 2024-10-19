@@ -1,0 +1,45 @@
+<?php require './templates/header.template.phtml'?>
+
+<div class="d-flex justify-content-center align-items-center my-4">
+    <div class="p-4 border rounded">
+    <table class="table table-borderless">
+        <thead>
+          <tr>
+            <th scope="col">#Order</th>            
+            <th scope="col">Status</th>            
+            <th scope="col"> Detalles</th>
+            <?php if (!empty($_SESSION['ID_USER'])): ?>
+            <th scope="col">Modificar</th>  
+            <th scope="col">Eliminar</th> 
+            <?php endif ?>
+          </tr>
+        </thead>
+        <tbody>
+    <?php foreach($orders as $order): ?>
+    <tr>
+      <th scope="row"> <?= $order->id_order ?></th>           
+      <td><?= $order->status ?> </td>      
+      <td><a href="<?= BASE_URL ?>showOrder/<?=$order->id_order ?>"> <button method = "post" type="button" class="btn btn-primary">Detalle</button></a></td>
+      <?php if (!empty($_SESSION['ID_USER'])): ?>
+      <td><a href="<?= BASE_URL ?>formNewOrder/<?=$order->id_order ?>"> <button method = "post" type="button" class="btn btn-primary">Modificar</button></a></td>
+      <td><a href="<?= BASE_URL ?>deleteOrder/<?=$order->id_order ?>"> <button method = "post" type="button" class="btn btn-primary">Eliminar</button></a></td>
+      <?php endif ?>
+
+    </tr>  
+        
+<?php endforeach ?>
+</tbody>
+</table>
+
+<?php if (!empty($_SESSION['ID_USER'])): ?>
+<a href="<?= BASE_URL ?>formNewOrder"> <button method = "post" type="button" class="btn btn-primary">Agregar Pedido</button></a></td>
+<?php endif ?>
+
+
+    
+
+</div>
+</div>
+
+<?php require './templates/footer.template.phtml'?> 
+
