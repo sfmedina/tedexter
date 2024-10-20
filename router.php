@@ -73,6 +73,12 @@ switch ($params[0]) {
         $controller->showClientForm($params[1]);
         break;
     
+    case "updateClient":
+        verifySession($res);
+        $controller = new userController;
+        $controller->updateClient($params[1]);
+        break;
+    
     case "newClient":
         verifySession($res);
         $controller = new userController;

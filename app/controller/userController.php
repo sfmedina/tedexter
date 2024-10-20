@@ -62,7 +62,7 @@ class userController {
                 || $_FILES['image']['type'] == "image/jpeg" 
                 || $_FILES['image']['type'] == "image/png")) {
                 $image = $_FILES['image']['tmp_name'];
-        }
+        } 
 
         $this->model->updateClient($id_client, $name, $email, $addres, $phone,$image);  
         header("Location: " . BASE_URL. 'showClients'); //se actualiza a show clients

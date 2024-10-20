@@ -50,7 +50,7 @@ class ordersController {
    public function formNewOrder($id)
    {
       // obtengo las tareas de la DB
-      $clients = $this->modelUser->showclients();
+      $clients = $this->modelUser->showClients();
       $order = $this->model->showOrderbyId($id);
 
       // mando las tareas a la vista
