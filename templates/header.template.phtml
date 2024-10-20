@@ -30,7 +30,7 @@ $res = !empty($_SESSION['USERNAME']);
         <a class="nav-link text-white" href="<?= BASE_URL ?>showOrders">Pedidos</a>
       </div>
       <div class="ms-auto"> <!-- Clase para alinear a la derecha -->
-        <?php if (!empty($_SESSION['ID_USER'])): ?>
+        <?php if (!empty($_SESSION['USERNAME'])): ?>
             <a class=" btn btn-outline-light px-4" href="<?= BASE_URL ?>logOut">Log out</a>  
         <?php else: ?>
             <a class=" btn btn-outline-light px-4" href="<?= BASE_URL ?>login">Log in</a> <!-- Botón con estilo -->
