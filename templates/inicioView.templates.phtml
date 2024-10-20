@@ -1,27 +1,135 @@
 <?php require './templates/header.template.phtml' ?>
 
-<div class="container">
+<div class="container mt-5 mb-4">
     <div class="text-center">
 
-        <img src="image/logo.png" class="rounded" alt="logo TEDEXTER" height="75">
+        <img src="image/logo.png" class="rounded mb-3" alt="logo TEDEXTER" height="75">
 
     </div>
     <div  class="row">
         <div class="col-12">
             <h1 class="text-center">Bienvenido a la tienda TeDEXter</h1>
-
         </div>
     </div>
     <div class="row">
         <div class="col-12">
-            <p class="text-center">Aquí podrás encontrar una gran variedad indumentaria para todos los deportes .</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12">
+            <p class="text-center">Aquí podrás encontrar una gran variedad indumentaria para todos los deportes.</p>
             <p class="text-center">¡Seguro que encontras lo que buscas!</p>
         </div>
     </div>
+</div>
 
+<div class="container my-5">
+    <h2 class="text-center mb-4 color text-danger">Accede a las diferentes secciones de nuestra página</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card text-center mb-4 h-100 d-flex flex-column">
+                <div class="card-body d-flex flex-column">
+                    <h4 class="card-title">Lista de Clientes</h4>
+                    <p class="card-text">Consulta todos los clientes registrados en nuestra tienda. Puedes ver detalles sobre cada cliente, como su historial de compras y preferencias. Asegúrate de mantener toda la información actualizada para ofrecer un mejor servicio.</p>
+                    <a href="<?= BASE_URL ?>showClients" class="btn btn-outline-danger mt-auto">Ver Clientes</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center mb-4 h-100 d-flex flex-column">
+                <div class="card-body d-flex flex-column">
+                    <h4 class="card-title">Órdenes</h4>
+                    <p class="card-text">Revisa todas las órdenes realizadas en la tienda. Aquí podrás gestionar el estado de los pedidos, verificar el historial de compras y realizar un seguimiento de las entregas para asegurar una experiencia satisfactoria.</p>
+                    <a href="<?= BASE_URL ?>showOrders" class="btn btn-outline-danger mt-auto">Ver Órdenes</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center mb-4 h-100 d-flex flex-column">
+                <div class="card-body d-flex flex-column">
+                    <h4 class="card-title">Iniciar Sesión</h4>
+                    <p class="card-text">Accede a tu cuenta para gestionar tus pedidos y ver tu historial de compras. Iniciar sesión es rápido y seguro, lo que te permitirá disfrutar de una experiencia personalizada cada vez que visites nuestra tienda.</p>
+                    <a href="<?= BASE_URL ?>login" class="btn btn-outline-danger mt-auto">Log In</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <div class="container my-5">
+        <h2 class="text-center mb-4 text-danger">Preguntas Frecuentes</h2>
+        <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button faq-row" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        ¿Qué tipos de pago aceptan?
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Aceptamos tarjetas de crédito, débito y transferencias bancarias.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button faq-row" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        ¿Puedo devolver un producto?
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Sí, puedes devolver un producto dentro de los 30 días posteriores a la compra.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button faq-row" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        ¿Hacen envíos a todo el país?
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Sí, realizamos envíos a todas las provincias de Argentina.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTfour">
+                    <button class="accordion-button faq-row" type="button" data-bs-toggle="collapse" data-bs-target="#collapsefour" aria-expanded="false" aria-controls="collapseThree">
+                        ¿Qué pasa si no recibo mi pedido dentro del tiempo estimado?
+                    </button>
+                </h2>
+                <div id="collapsefour" class="accordion-collapse collapse" aria-labelledby="headingfour" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Para eso contamos con un número de contacto para realizar consultas, pero una vez despachado el problema es de la empresa de correo.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container my-5">
+        <h2 class="text-center mb-4 text-danger">Tarjetas Disponibles</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="feature-box mb-4">
+                    <h4>Tarjeta Visa</h4>
+                    <p>Disfruta de ofertas exclusivas al pagar con Visa.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-box mb-4">
+                    <h4>Tarjeta Mastercard</h4>
+                    <p>Obtén puntos adicionales en cada compra con Mastercard.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-box mb-4">
+                    <h4>Tarjeta American Express</h4>
+                    <p>Beneficios únicos y promociones especiales con American Express.</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <?php require './templates/footer.template.phtml'?> 
     

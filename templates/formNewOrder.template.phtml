@@ -29,7 +29,7 @@
                 </select>
             </div>
 
-            <button type="submit" class="btn btn-primary mt-4">
+            <button type="submit" class="btn btn-outline-danger mb-3 mt-3">
                 <?= isset($order[0]->id_order) ? 'Modificar Pedido' : 'Agregar Pedido'; ?>
             </button>
             
@@ -38,10 +38,10 @@
 
         <div>
             <a href="<?= BASE_URL ?>showOrders">
-                <button type="button" class="btn btn-warning">Volver</button>
+                <button type="button" class="btn btn-outline-danger ml-2">Volver</button>
             </a>
         </div>
     </div>
 </div>
-
+</form>
 <?php require './templates/footer.template.phtml'; ?>

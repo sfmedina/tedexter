@@ -1,6 +1,12 @@
 <?php require './templates/header.template.phtml';?>
+<div class="container my-4 mt-5">
+    <div class="text-center">
+        <h2>Bienvenido a la Gestión de Clientes</h2>
+        <p class="mt-3">En esta sección podrás visualizar todos los clientes registrados en nuestra tienda. Puedes ver sus datos, y también podes ver las órdenes de cada uno.</p>
+    </div>
+</div>
 
-<div class="d-flex justify-content-center align-items-center my-4">
+<div class="d-flex justify-content-center align-items-center mb-5">
 <div class="p-4 border rounded">
 <table class="table table-borderless">
       <thead>
@@ -11,6 +17,11 @@
           <th scope="col">Address</th>
           <th scope="col">Phone</th>
           <th scope="col">Image</th>
+          <?php if (!empty($_SESSION['USERNAME'])): ?>
+            <th scope="col">Eliminar</th>  
+            <th scope="col">Actualizar</th> 
+            <?php endif ?>
+            <th scope="col">Detalles</th>
         </tr>
       </thead>
 
@@ -30,15 +41,15 @@
                 <?php endif; ?>
             </td>
                 <?php if (!empty($_SESSION['USERNAME'])): ?>
-            <td><a href="<?= BASE_URL ?>deleteClient/<?=$client->id_client?>"> <button method = "post" type="button" class="btn btn-primary">Eliminar cliente</button></a></td>
-            <td><a href="<?= BASE_URL ?>modifyClient/<?=$client->id_client?>"> <button method = "post" type="button" class="btn btn-primary">Actualizar cliente</button></a></td>
+            <td><a href="<?= BASE_URL ?>deleteClient/<?=$client->id_client?>"> <button method = "post" type="button" class="btn btn-outline-danger">Eliminar cliente</button></a></td>
+            <td><a href="<?= BASE_URL ?>modifyClient/<?=$client->id_client?>"> <button method = "post" type="button" class="btn btn-outline-danger">Actualizar cliente</button></a></td>
                 <?php endif; ?>
-            <td><a href="<?= BASE_URL ?>showClient/<?=$client->id_client?>"> <button method = "post" type="button" class="btn btn-primary">Ver pedidos</button></a></td>
+            <td><a href="<?= BASE_URL ?>showClient/<?=$client->id_client?>"> <button method = "post" type="button" class="btn btn-outline-danger">Ver pedidos</button></a></td>
           </tr>  
         
         <?php endforeach;?>
         <?php if (!empty($_SESSION['USERNAME'])): ?>
-        <td><a href="<?= BASE_URL ?>addClient/"> <button method ="post" type="button" class="btn btn-primary">Añadir cliente</button></a></td>
+        <td><a href="<?= BASE_URL ?>addClient/"> <button method ="post" type="button" class="btn btn-outline-danger">Añadir cliente</button></a></td>
         <?php endif; ?>
     </tbody>
 </table>

@@ -1,15 +1,14 @@
-
 <?php require './templates/header.template.phtml' ?>
 
-<body>
+
 <form method= 'POST' action='<?= BASE_URL ?>login'>
-  <div class="container mt-5">
+  <div class="container mt-5 mb-5">
     <div class="bg-white p-5 rounded-5 text-secondary shadow mx-auto" style="width: 25rem">
-      <div class="d-flex justify-content-center">
-      <svg class="mx-auto my-3" xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+            <div class="d-flex justify-content-center">
+                <svg class="mx-auto my-3" xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                   <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
                 </svg>
-      </div>
+            </div>
 
       <div class="text-center fs-1 fw-bold">Login</div>
         <div class="input-group mt-4">
@@ -39,9 +38,8 @@
         <?php endif ?>
       </div>
     </div>
+        </div>
   </form>
-
-</body>
-
+  
 
 <?php require './templates/footer.template.phtml'?> 
